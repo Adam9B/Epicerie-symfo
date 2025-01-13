@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProduitController!
+{% endblock %}
+
+
+{% block body %}
+    <h1>Liste de produits</h1>
+
+    <!-- Conteneur Flex pour aligner les produits en ligne -->
+
+    <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+        {% for produit in produits %}
+            <div style="width: 150px; border: 1px solid #ccc; padding: 10px; text-align: center;">
+                <img src="{{ produit.image }}" width="100px" alt="{{ produit.nom }}">
+                <h3><strong>{{ produit.nom }}</strong></h3>
+                <p>Prix : {{ produit.prix }} €</p>
+                <p>Poids : {{ produit.poids }} Kg</p>
+                <p>
+                    Dangereux : 
+                    {% if produit.dangereux == 1 %}Oui{% else %}Non{% endif %}
+                </p>
+
+			 <a href="homepage/{{produit.alias}}"><button>Info Produit</button></a>
+            </div>
+			
+        {% endfor %}
+    </div>
+
+{% endblock %}

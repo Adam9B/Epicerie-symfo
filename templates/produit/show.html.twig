@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+ 
+{% block title %}Hello jeune entrepeneur{% endblock %}
+ 
+{% block body %}
+    <h1 style="text-align:center;">{{produit.nom}}</h1>
+<div style=" display:flex; justify-content:center;" > 
+<div style="text-align:center; border: 1px black solid; width : 200px;">     
+    <img src="{{asset('image/produit/' ~ produit.alias ~ '.jpg')}}" alt="" width="200px">
+
+    <br>
+    Prix : {{produit.prix}} €
+    <br>
+    Poids : {{produit.poids}} Kg
+    <br>
+    Dangereux : {% if produit.dangereux == 1 %}Oui{% else %}Non{% endif %}
+    <br><br>
+
+    
+    <a href="{{path('app_produit')}}"    style="text-align:center;"> <button>Retour au catalogue</a></button> 
+    </div>
+    </div>
+{% endblock %}
